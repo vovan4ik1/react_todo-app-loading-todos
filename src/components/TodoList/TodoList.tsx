@@ -7,11 +7,7 @@ interface Props {
 }
 
 export const TodoList: React.FC<Props> = ({ displayedTodos }) => {
-  return (
-    <section className="todoapp__main" data-cy="TodoList">
-      {displayedTodos.map(todo => (
-        <TodoItem key={todo.id} todo={todo} />
-      ))}
-    </section>
-  );
+  return displayedTodos.map(({ id, title, completed }) => {
+    return <TodoItem key={id} id={id} title={title} completed={completed} />;
+  });
 };
