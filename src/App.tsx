@@ -47,12 +47,11 @@ export const App: React.FC = () => {
     setLoading(true);
     getTodos()
       .then(setTodosFromServer)
-      .catch(err => {
+      .catch(() => {
         setError(true);
         setTimeout(() => {
           setError(false);
         }, 3000);
-        throw err;
       })
       .finally(() => setLoading(false));
   }, []);
